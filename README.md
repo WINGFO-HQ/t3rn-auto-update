@@ -4,7 +4,7 @@ _This repository contains scripts to set up, manage, and automatically update a 
 # Installation
 **Run the Installation Script**
 ```bash
-curl -s -o t3rn-setup.sh https://raw.githubusercontent.com/WINGFO-HQ/t3rn-auto-update/main/t3rn-setup.sh && chmod +x t3rn-setup.sh && /t3rn-setup.sh
+git clone https://github.com/WINGFO-HQ/t3rn-auto-update && cd t3rn-auto-update && chmod +x ./t3rn-setup.sh && ./t3rn-setup.sh
 ```
 
 # Features
