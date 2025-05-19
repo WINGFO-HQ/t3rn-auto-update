@@ -1,6 +1,12 @@
 # T3rn Executor Node Auto-Update Version
 _This repository contains scripts to set up, manage, and automatically update a T3rn Executor Node. The system provides automatic updates by checking for new releases from the official T3rn GitHub repository._
 
+# Installation
+**Run the Installation Script**
+```bash
+curl -s -o t3rn-setup.sh https://raw.githubusercontent.com/WINGFO-HQ/t3rn-auto-update/main/t3rn-setup.sh && chmod +x t3rn-setup.sh && /t3rn-setup.sh
+```
+
 # Features
 - One-click Installation: Easy setup of the T3rn Executor Node
 - Automatic Updates: Checks for new releases every 6 hours
@@ -13,12 +19,6 @@ _This repository contains scripts to set up, manage, and automatically update a 
 - Sudo privileges
 - Internet connection
 - EVM private key for your node
-
-# Installation
-**Run the Installation Script**
-```bash
-curl -s -o t3rn-setup.sh https://raw.githubusercontent.com/WINGFO-HQ/t3rn-auto-update/main/setup.sh && chmod +x t3rn-setup.sh && /t3rn-setup.sh
-```
 
 # The script will:
 - Install required dependencies
