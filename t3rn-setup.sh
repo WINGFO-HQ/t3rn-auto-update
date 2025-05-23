@@ -45,14 +45,27 @@ fi
 
 mkdir -p t3rn && cd t3rn
 
-# Get latest release version
-echo -e "${BLUE}• Fetching latest release...${NC}"
+# Get latest release version and download in one go
+echo -e "${BLUE}• Fetching latest release and downloading...${NC}"
 LATEST_RELEASE=$(curl -s https://api.github.com/repos/t3rn/executor-release/releases/latest | grep -Po '"tag_name": "\K.*?(?=")')
+
+if [ -z "$LATEST_RELEASE" ]; then
+    echo -e "${RED}✗ Failed to fetch latest release version${NC}"
+    exit 1
+fi
+
 echo -e "${GREEN}• Latest release: ${LATEST_RELEASE}${NC}"
 
 # Download and extract
 echo -e "${BLUE}• Downloading executor...${NC}"
-wget -q https://github.com/t3rn/executor-release/releases/download/${LATEST_RELEASE}/executor-linux-${LATEST_RELEASE}.tar.gz
+if wget -q "https://github.com/t3rn/executor-release/releases/download/${LATEST_RELEASE}/executor-linux-${LATEST_RELEASE}.tar.gz"; then
+    echo -e "${GREEN}• Download completed${NC}"
+else
+    echo -e "${RED}✗ Failed to download executor${NC}"
+    exit 1
+fi
+
+echo -e "${BLUE}• Extracting...${NC}"
 tar -xzf executor-linux-*.tar.gz
 cd executor/executor/bin
 chmod +x executor
@@ -206,4 +219,4 @@ echo -e "${YELLOW}• Update logs:${NC} cat $HOME/t3rn/auto_update.log"
 echo -e "${YELLOW}• Control:${NC} bash $HOME/t3rn-control.sh {start|stop|restart|status|logs|update|force-update}"
 echo -e "${YELLOW}• Config:${NC} $HOME/t3rn/executor.env"
 echo -e "${GREEN}=====================================================${NC}"
-echo -e "${BLUE}The system will automatically check for updates every 6 hours${NC}"
+echo -e "${BLUE}The system will automatically check for updates every 1 hours${NC}"
