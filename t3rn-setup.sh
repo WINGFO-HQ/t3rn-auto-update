@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 # Print banner
 echo -e "${BLUE}╔════════════════════════════════════════════════════════╗${NC}"
 echo -e "${BLUE}║                                                        ║${NC}"
-echo -e "${BLUE}║${GREEN}           T3rn Executor Node Setup Script             ${BLUE}║${NC}"
+echo -e "${BLUE}║${GREEN}           T3rn Executor Node Setup Script            ${BLUE}║${NC}"
 echo -e "${BLUE}║                                                        ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════════════════════╝${NC}"
 
