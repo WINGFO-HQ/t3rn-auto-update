@@ -124,7 +124,7 @@ EOF
 
 # Download auto-updater script
 echo -e "\n${YELLOW}[4/5]${NC} Installing auto-update system..."
-wget -q -O $HOME/t3rn/t3rn-updater.sh https://raw.githubusercontent.com/yourusername/t3rn-auto-update/main/t3rn-updater.sh
+wget -q -O $HOME/t3rn/t3rn-updater.sh https://raw.githubusercontent.com/WINGFO-HQ/t3rn-auto-update/main/t3rn-updater.sh
 chmod +x $HOME/t3rn/t3rn-updater.sh
 
 # Install auto-updater
