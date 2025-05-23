@@ -26,7 +26,7 @@ touch "$LOG_FILE"
 print_banner() {
     echo -e "${BLUE}╔═════════════════════════════════════════════════════════╗${NC}"
     echo -e "${BLUE}║                                                         ║${NC}"
-    echo -e "${BLUE}║${GREEN}      T3rn Executor Node Automatic Updater             ${BLUE}║${NC}"
+    echo -e "${BLUE}║${GREEN}      T3rn Executor Node Automatic Updater            ${BLUE}║${NC}"
     echo -e "${BLUE}║                                                         ║${NC}"
     echo -e "${BLUE}╚═════════════════════════════════════════════════════════╝${NC}"
 }
@@ -169,11 +169,11 @@ EOF
     # Create timer file for scheduled runs
     sudo tee /etc/systemd/system/t3rn-auto-update.timer > /dev/null << EOF
 [Unit]
-Description=Run T3rn Executor Auto Update every 6 hours
+Description=Run T3rn Executor Auto Update every 1 hours
 
 [Timer]
 OnBootSec=15min
-OnUnitActiveSec=6h
+OnUnitActiveSec=1h
 Persistent=true
 
 [Install]
@@ -188,7 +188,7 @@ EOF
     sudo systemctl start t3rn-auto-update.timer
     
     log "${GREEN}Auto-update service and timer installed successfully${NC}"
-    log "${BLUE}Updates will run automatically every 6 hours and at boot${NC}"
+    log "${BLUE}Updates will run automatically every 1 hours and at boot${NC}"
 }
 
 # Function to verify existing installation
@@ -225,7 +225,7 @@ main() {
             # Create the auto-update service
             create_auto_update_service
             echo -e "\n${GREEN}✓ Auto-update system installed successfully${NC}"
-            echo -e "${YELLOW}• Updates will run automatically every 6 hours${NC}"
+            echo -e "${YELLOW}• Updates will run automatically every 1 hours${NC}"
             echo -e "${YELLOW}• Manual update check: ${NC}bash $HOME/t3rn-auto-update.sh"
             echo -e "${YELLOW}• View logs: ${NC}cat $LOG_FILE"
             ;;
