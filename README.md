@@ -87,7 +87,7 @@ Common issues:
 
 # Disable automatic updates
 ```bash
-sudo systemctl stop t3rn-auto-update.timer
+sudo systemctl stop t3rn-auto-update.timer && \
 sudo systemctl disable t3rn-auto-update.timer
 ```
 
@@ -103,6 +103,6 @@ sudo rm /etc/systemd/system/t3rn-auto-update.service && \
 sudo rm /etc/systemd/system/t3rn-auto-update.timer && \
 sudo systemctl daemon-reload && \
 rm -rf ~/t3rn && \
-rm ~/t3rn-auto-update.sh
+cd $HOME && rm -r t3rn-auto-update
 ```
 For more information about T3rn, visit the [official website](https://t3rn.io/) or the [GitHub repository](https://github.com/t3rn/executor-release).
